@@ -4522,19 +4522,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Boot Camp\\.nuget\\packages\\": {}
+    "C:\\Users\\Nikko\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Boot Camp\\source\\repos\\asp.net_entity\\EMPManagementAPI\\EMPManagementAPI.csproj",
+      "projectUniqueName": "D:\\vs_studio\\asp-new\\EMPManagementAPI\\EMPManagementAPI.csproj",
       "projectName": "EMPManagementAPI",
-      "projectPath": "C:\\Users\\Boot Camp\\source\\repos\\asp.net_entity\\EMPManagementAPI\\EMPManagementAPI.csproj",
-      "packagesPath": "C:\\Users\\Boot Camp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Boot Camp\\source\\repos\\asp.net_entity\\EMPManagementAPI\\obj\\",
+      "projectPath": "D:\\vs_studio\\asp-new\\EMPManagementAPI\\EMPManagementAPI.csproj",
+      "packagesPath": "C:\\Users\\Nikko\\.nuget\\packages\\",
+      "outputPath": "D:\\vs_studio\\asp-new\\EMPManagementAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Boot Camp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nikko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4600,7 +4605,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -10,7 +10,7 @@ namespace EMPManagementAPI.Models.Domain
 
         public string EmployeeName { get; set; }
 
-        public DateTime DateOfBirth { get; set; }
+        public DateOnly DateOfBirth { get; set; }
 
         public string Gender { get; set; }
 
