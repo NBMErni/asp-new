@@ -124,7 +124,7 @@ namespace EMPManagementAPI.Controllers
             dbContext.Project.Remove(project);
             await dbContext.SaveChangesAsync();
 
-            return Ok(project);
+            return Ok($"Project with ID {id} has been deleted");
         }
 
     }

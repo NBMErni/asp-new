@@ -1,4 +1,5 @@
-﻿using EMPManagementAPI.Models;
+﻿using Azure;
+using EMPManagementAPI.Models;
 using EMPManagementAPI.Models.Domain;
 using EMPManagementAPI.Models.DTO.EmployeeInformation;
 using EMPManagementAPI.Models.DTO.ProjectEmployee;
@@ -78,7 +79,7 @@ namespace EMPManagementAPI.Controllers
 
         // PUT: api/ProjectEmployee/{id}
         [HttpPut("{id:int}")]
-        public IActionResult UpdateEmployee(int id, [FromBody] UpdateProjectEmployeeDto updateProjectDto)
+        public IActionResult UpdateProjectEmployee(int id, [FromBody] UpdateProjectEmployeeDto updateProjectDto)
         {
             if (!ModelState.IsValid)
             {
@@ -100,8 +101,11 @@ namespace EMPManagementAPI.Controllers
 
                 dbContext.SaveChanges();
 
-
-                return Ok(projectEmployee);
+                var response = new
+                {
+                    Message = $"Project Employee with ID {id} has been successfully updated."
+                };
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -113,7 +117,7 @@ namespace EMPManagementAPI.Controllers
 
         // DELETE: api/ProjectEmployee
         [HttpDelete("{id:int}")]
-        public async Task<IActionResult> DeleteEmployee([FromRoute] int id)
+        public async Task<IActionResult> DeleteProjectEmployee([FromRoute] int id)
         {
             var projectEmployee = await dbContext.ProjectEmployee.FindAsync(id);
             if (projectEmployee == null)
@@ -124,7 +128,7 @@ namespace EMPManagementAPI.Controllers
             dbContext.ProjectEmployee.Remove(projectEmployee);
             await dbContext.SaveChangesAsync();
 
-            return Ok(projectEmployee);
+            return Ok($"ProjectEmployee with ID {id} has been deleted");
         }
 
     }

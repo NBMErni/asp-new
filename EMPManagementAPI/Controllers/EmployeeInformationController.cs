@@ -73,8 +73,12 @@ namespace EMPManagementAPI.Controllers
                 dbContext.EmployeeInformation.Add(employee);
                 dbContext.SaveChanges();
 
+                var response = new
+                {
+                    Message = $"Employee {employee.EmployeeName} has been successfully created."
+                };
 
-                return CreatedAtAction(nameof(GetEmployeeById), new { id = employee.EmployeeId }, employee);
+                return CreatedAtAction(nameof(GetEmployeeById), new { id = employee.EmployeeId }, response);
             }
             catch (Exception ex)
             {
@@ -110,9 +114,12 @@ namespace EMPManagementAPI.Controllers
 
 
                 dbContext.SaveChanges();
+                var response = new
+                {
+                    Message = $"Employee with ID {employee.EmployeeId} has been successfully updated."
+                };
 
-
-                return Ok(employee);
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -134,7 +141,7 @@ namespace EMPManagementAPI.Controllers
             dbContext.EmployeeInformation.Remove(employee);
             await dbContext.SaveChangesAsync();
 
-            return Ok(employee);
+            return Ok($"Employee with ID {id} has been deleted");
         }
     }
 }

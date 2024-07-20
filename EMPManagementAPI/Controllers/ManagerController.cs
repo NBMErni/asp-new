@@ -61,7 +61,12 @@ namespace EMPManagementAPI.Controllers
                 dbContext.Manager.Add(manager);
                 dbContext.SaveChanges();
 
-                return CreatedAtAction(nameof(GetManagerById), new { id = manager.ManagerId }, manager);
+                var response = new
+                {
+                    Message = $"Manager {manager.ManagerName} has been successfully added."
+                };
+
+                return CreatedAtAction(nameof(GetManagerById), new { id = manager.ManagerId }, response);
             }
             catch (Exception ex)
             {
@@ -91,7 +96,12 @@ namespace EMPManagementAPI.Controllers
 
                 dbContext.SaveChanges();
 
-                return Ok(manager);
+                var response = new
+                {
+                    Message = $"Manager with ID {id} has been successfully updated."
+                };
+
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -99,6 +109,8 @@ namespace EMPManagementAPI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Internal server error: {ex.Message}");
             }
         }
+
+        // DELETE: api/Manager
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteManager([FromRoute] int id)
         {
@@ -111,7 +123,7 @@ namespace EMPManagementAPI.Controllers
             dbContext.Manager.Remove(manager);
             await dbContext.SaveChangesAsync();
 
-            return Ok(manager);
+            return Ok($"Manager with ID {id} has been deleted");
         }
     }
 }

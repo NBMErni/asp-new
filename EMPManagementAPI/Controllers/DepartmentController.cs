@@ -63,8 +63,12 @@ namespace EMPManagementAPI.Controllers
                 dbContext.Department.Add(department);
                 dbContext.SaveChanges();
 
+                  var response = new
+                {
+                    Message = $"Department {department.DepartmentName} has been successfully added."
+                };
 
-                return CreatedAtAction(nameof(GetDepartmentById), new { id = department.DepartmentId }, department);
+                return CreatedAtAction(nameof(GetDepartmentById), new { id = department.DepartmentId }, response);
             }
             catch (Exception ex)
             {
@@ -75,7 +79,7 @@ namespace EMPManagementAPI.Controllers
 
         // PUT: api/Department/{id}
         [HttpPut("{id:int}")]
-        public IActionResult UpdateEmployee(int id, [FromBody] UpdateDepartmentDto updateDepartmentDto)
+        public IActionResult UpdateDepartment(int id, [FromBody] UpdateDepartmentDto updateDepartmentDto)
         {
             if (!ModelState.IsValid)
             {
@@ -95,7 +99,12 @@ namespace EMPManagementAPI.Controllers
 
                 dbContext.SaveChanges();
 
-                return Ok(department);
+                var response = new
+                {
+                    Message = $"Department with ID {id} has been successfully updated."
+                };
+
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -104,6 +113,7 @@ namespace EMPManagementAPI.Controllers
             }
         }
 
+        // DELETE: api/Department
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteDepartment([FromRoute] int id)
         {
@@ -116,7 +126,7 @@ namespace EMPManagementAPI.Controllers
             dbContext.Department.Remove(department);
             await dbContext.SaveChangesAsync();
 
-            return Ok(department);
+            return Ok($"Department with ID {id} has been deleted");
         }
     }
 }
