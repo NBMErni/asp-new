@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EMPManagementAPI.Models.DTO.ProjectEmployee
 {
-    public class CreateProjectEmployee
+    public class CreateProjectEmployeeDto
     {
         [Required]
         public int EmployeeId { get; set; }

@@ -22,7 +22,10 @@ namespace EMPManagementAPI.Controllers
         [HttpGet]
         public IActionResult GetAllEmployee()
         {
-            var employees = dbContext.EmployeeInformation.Include(e => e.Department).Include(e => e.Manager).ToList();
+            var employees = dbContext.EmployeeInformation.Include(e => e.Department)
+                .Include(e => e.Manager)
+               
+                .ToList();
 
             return Ok(employees);
         }
@@ -117,6 +120,8 @@ namespace EMPManagementAPI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Internal server error: {ex.Message}");
             }
         }
+
+        // DELETE: api/EmployeeInformation
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteEmployee([FromRoute] int id)
         {

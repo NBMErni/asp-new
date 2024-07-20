@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EMPManagementAPI.Migrations
 {
     [DbContext(typeof(EMPManagementDbContext))]
-    [Migration("20240720032150_Initial")]
+    [Migration("20240720083926_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

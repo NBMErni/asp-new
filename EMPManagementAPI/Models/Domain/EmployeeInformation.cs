@@ -14,11 +14,14 @@ namespace EMPManagementAPI.Models.Domain
 
         public string Gender { get; set; }
 
+        //Prints only the ID of the selected variable
+        
         public int? ManagerId { get; set; }
-
+        
         public int? DepartmentId { get; set; }
 
         // Navigation property 
+        //Prints out the data from the ID that is selected
         [JsonIgnore]
         public Manager Manager { get; set; }
         [JsonIgnore]

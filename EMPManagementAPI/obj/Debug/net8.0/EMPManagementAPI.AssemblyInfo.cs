@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EMPManagementAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+727b5f0821eafbb0700c468e10eadfaf2ea28a05")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1e88720d76d77c19e2d3db0acbef8489cf3d7fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("EMPManagementAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EMPManagementAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

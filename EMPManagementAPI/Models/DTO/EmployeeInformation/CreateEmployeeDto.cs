@@ -19,6 +19,8 @@ namespace EMPManagementAPI.Models.DTO.EmployeeInformation
         [Required]
         public int? DepartmentId { get; set; }
 
+  
+
 
     }
 }

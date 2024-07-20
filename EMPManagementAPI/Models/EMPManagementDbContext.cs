@@ -15,7 +15,7 @@ namespace EMPManagementAPI.Models
 
         public DbSet<Project> Project { get; set; }
 
-        public DbSet<Project> ProjectEmployee { get; set; }
+        public DbSet<ProjectEmployee> ProjectEmployee { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
