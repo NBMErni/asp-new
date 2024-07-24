@@ -1,8 +1,8 @@
 ﻿using Azure;
 using EMPManagementAPI.Models;
 using EMPManagementAPI.Models.Domain;
-using EMPManagementAPI.Models.DTO.EmployeeInformation;
-using EMPManagementAPI.Models.DTO.ProjectEmployee;
+using EMPManagementAPI.Models.DTO;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -46,7 +46,7 @@ namespace EMPManagementAPI.Controllers
 
         // POST: api/ProjectEmployee
         [HttpPost]
-        public IActionResult CreateProjectEmployee([FromBody] CreateProjectEmployeeDto createProjectemployee)
+        public IActionResult CreateProjectEmployee([FromBody] ProjectEmployeeDto projectEmployeeDto)
         {
             if (!ModelState.IsValid)
             {
@@ -58,8 +58,8 @@ namespace EMPManagementAPI.Controllers
 
                 var projectEmployee = new ProjectEmployee
                 {
-                   EmployeeId = createProjectemployee.EmployeeId,
-                   ProjectId = createProjectemployee.ProjectId
+                   EmployeeId = projectEmployeeDto.EmployeeId,
+                   ProjectId = projectEmployeeDto.ProjectId
                 };
 
 
@@ -79,7 +79,7 @@ namespace EMPManagementAPI.Controllers
 
         // PUT: api/ProjectEmployee/{id}
         [HttpPut("{id:int}")]
-        public IActionResult UpdateProjectEmployee(int id, [FromBody] UpdateProjectEmployeeDto updateProjectDto)
+        public IActionResult UpdateProjectEmployee(int id, [FromBody] ProjectEmployeeDto projectEmployeeDto)
         {
             if (!ModelState.IsValid)
             {
@@ -95,8 +95,8 @@ namespace EMPManagementAPI.Controllers
 
             try
             {
-                projectEmployee.EmployeeId = updateProjectDto.EmployeeId;
-                projectEmployee.ProjectId = updateProjectDto.ProjectId;
+                projectEmployee.EmployeeId = projectEmployeeDto.EmployeeId;
+                projectEmployee.ProjectId = projectEmployeeDto.ProjectId;
 
 
                 dbContext.SaveChanges();

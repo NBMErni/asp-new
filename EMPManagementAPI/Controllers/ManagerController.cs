@@ -1,7 +1,7 @@
 ﻿using EMPManagementAPI.Models;
 using EMPManagementAPI.Models.Domain;
-using EMPManagementAPI.Models.DTO.EmployeeInformation;
-using EMPManagementAPI.Models.DTO.Manager;
+using EMPManagementAPI.Models.DTO;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -44,7 +44,7 @@ namespace EMPManagementAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateManager([FromBody] CreateManagerDto createManagerDto)
+        public IActionResult CreateManager([FromBody] ManagerDto managerDto)
         {
             if (!ModelState.IsValid)
             {
@@ -55,7 +55,7 @@ namespace EMPManagementAPI.Controllers
             {
                 var manager = new Manager
                 {
-                    ManagerName = createManagerDto.ManagerName
+                    ManagerName = managerDto.ManagerName
                 };
 
                 dbContext.Manager.Add(manager);
@@ -76,7 +76,7 @@ namespace EMPManagementAPI.Controllers
 
         // PUT: api/Manager/{id}
         [HttpPut("{id:int}")]
-        public IActionResult UpdateManager(int id, [FromBody] UpdateManagerDto updateManagerDto)
+        public IActionResult UpdateManager(int id, [FromBody] ManagerDto managerDto)
         {
             if (!ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace EMPManagementAPI.Controllers
 
             try
             {
-                manager.ManagerName = updateManagerDto.DepartmentName;
+                manager.ManagerName = managerDto.ManagerName;
 
                 dbContext.SaveChanges();
 

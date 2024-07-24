@@ -4523,7 +4523,7 @@
   },
   "packageFolders": {
     "C:\\Users\\Nikko\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "E:\\MIcrosoft Visual Studio Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
@@ -4535,7 +4535,7 @@
       "outputPath": "D:\\vs_studio\\asp-new\\EMPManagementAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "E:\\MIcrosoft Visual Studio Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\Nikko\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4605,7 +4605,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

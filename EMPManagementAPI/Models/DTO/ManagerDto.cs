@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EMPManagementAPI.Models.DTO.Manager
+namespace EMPManagementAPI.Models.DTO
 {
-    public class CreateManagerDto
+    public class ManagerDto
     {
         [Required]
         public string ManagerName { get; set; }

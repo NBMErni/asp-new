@@ -1,6 +1,6 @@
 ﻿using EMPManagementAPI.Models;
 using EMPManagementAPI.Models.Domain;
-using EMPManagementAPI.Models.DTO.EmployeeInformation;
+using EMPManagementAPI.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -50,7 +50,7 @@ namespace EMPManagementAPI.Controllers
 
         // POST: api/EmployeeInformation
         [HttpPost]
-        public IActionResult CreateEmployee([FromBody] CreateEmployeeDto createEmployeeDto)
+        public IActionResult CreateEmployee([FromBody] EmployeeInformationDto employeeInformationDto)
         {
             if (!ModelState.IsValid)
             {
@@ -62,11 +62,11 @@ namespace EMPManagementAPI.Controllers
 
                 var employee = new EmployeeInformation
                 {
-                    EmployeeName = createEmployeeDto.EmployeeName,
-                    DateOfBirth = createEmployeeDto.DateOfBirth,
-                    Gender = createEmployeeDto.Gender,
-                    ManagerId = createEmployeeDto.ManagerId,
-                    DepartmentId = createEmployeeDto.DepartmentId,
+                    EmployeeName = employeeInformationDto.EmployeeName,
+                    DateOfBirth = employeeInformationDto.DateOfBirth,
+                    Gender = employeeInformationDto.Gender,
+                    ManagerId = employeeInformationDto.ManagerId,
+                    DepartmentId = employeeInformationDto.DepartmentId,
                 };
 
 
@@ -89,7 +89,7 @@ namespace EMPManagementAPI.Controllers
 
         // PUT: api/EmployeeInformation/{id}
         [HttpPut("{id:int}")]
-        public IActionResult UpdateEmployee(int id, [FromBody] UpdateEmployeeDto updateEmployeeDto)
+        public IActionResult UpdateEmployee(int id, [FromBody] EmployeeInformationDto employeeInformationDto)
         {
             if (!ModelState.IsValid)
             {
@@ -106,11 +106,11 @@ namespace EMPManagementAPI.Controllers
             try
             {
 
-                employee.EmployeeName = updateEmployeeDto.EmployeeName;
-                employee.DateOfBirth = updateEmployeeDto.DateOfBirth;
-                employee.Gender = updateEmployeeDto.Gender;
-                employee.ManagerId = updateEmployeeDto.ManagerId;
-                employee.DepartmentId = updateEmployeeDto.DepartmentId;
+                employee.EmployeeName = employeeInformationDto.EmployeeName;
+                employee.DateOfBirth = employeeInformationDto.DateOfBirth;
+                employee.Gender = employeeInformationDto.Gender;
+                employee.ManagerId = employeeInformationDto.ManagerId;
+                employee.DepartmentId = employeeInformationDto.DepartmentId;
 
 
                 dbContext.SaveChanges();

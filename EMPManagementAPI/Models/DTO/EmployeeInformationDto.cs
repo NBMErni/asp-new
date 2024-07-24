@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EMPManagementAPI.Models.DTO.EmployeeInformation
+namespace EMPManagementAPI.Models.DTO
 {
-    public class UpdateEmployeeDto
+    public class EmployeeInformationDto
     {
         [Required]
         public string EmployeeName { get; set; }

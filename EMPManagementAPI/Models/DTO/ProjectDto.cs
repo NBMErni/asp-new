@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EMPManagementAPI.Models.DTO.Project
+namespace EMPManagementAPI.Models.DTO
 {
-    public class UpdateProjectDto
+    public class ProjectDto
     {
         [Required]
         [StringLength(100)]

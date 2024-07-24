@@ -1,7 +1,6 @@
 ﻿using EMPManagementAPI.Models;
 using EMPManagementAPI.Models.Domain;
-using EMPManagementAPI.Models.DTO.EmployeeInformation;
-using EMPManagementAPI.Models.DTO.Project;
+using EMPManagementAPI.Models.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -44,7 +43,7 @@ namespace EMPManagementAPI.Controllers
 
         // POST: api/Project
         [HttpPost]
-        public IActionResult CreateEmployee([FromBody] CreateProjectDto createProjectDto)
+        public IActionResult CreateEmployee([FromBody] ProjectDto projectDto)
         {
             if (!ModelState.IsValid)
             {
@@ -56,9 +55,9 @@ namespace EMPManagementAPI.Controllers
 
                 var project = new Project
                 {
-                   ProjectName = createProjectDto.ProjectName,
-                   StartDate = createProjectDto.StartDate,
-                   EndDate = createProjectDto.EndDate,
+                   ProjectName = projectDto.ProjectName,
+                   StartDate = projectDto.StartDate,
+                   EndDate = projectDto.EndDate,
                    
                 };
 
@@ -78,7 +77,7 @@ namespace EMPManagementAPI.Controllers
 
         // PUT: api/Project/{id}
         [HttpPut("{id:int}")]
-        public IActionResult UpdateProject(int id, [FromBody] UpdateProjectDto updateProjectDto)
+        public IActionResult UpdateProject(int id, [FromBody] ProjectDto projectDto)
         {
             if (!ModelState.IsValid)
             {
@@ -95,9 +94,9 @@ namespace EMPManagementAPI.Controllers
             try
             {
 
-                project.ProjectName = updateProjectDto.ProjectName;
-                project.StartDate = updateProjectDto.StartDate;
-                project.EndDate = updateProjectDto.EndDate;
+                project.ProjectName = projectDto.ProjectName;
+                project.StartDate = projectDto.StartDate;
+                project.EndDate = projectDto.EndDate;
 
                 dbContext.SaveChanges();
 

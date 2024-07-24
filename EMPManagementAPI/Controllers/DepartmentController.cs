@@ -1,7 +1,7 @@
 ﻿using EMPManagementAPI.Models;
 using EMPManagementAPI.Models.Domain;
-using EMPManagementAPI.Models.DTO.Department;
-using EMPManagementAPI.Models.DTO.EmployeeInformation;
+using EMPManagementAPI.Models.DTO;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -44,7 +44,7 @@ namespace EMPManagementAPI.Controllers
 
         // POST: api/EmployeeInformation
         [HttpPost]
-        public IActionResult CreateDepartment([FromBody] CreateDepartmentDto createDepartmentDto)
+        public IActionResult CreateDepartment([FromBody] DepartmentDto departmentDto)
         {
             if (!ModelState.IsValid)
             {
@@ -56,7 +56,7 @@ namespace EMPManagementAPI.Controllers
 
                 var department = new Department
                 {
-                   DepartmentName = createDepartmentDto.DepartmentName
+                   DepartmentName = departmentDto.DepartmentName
                 };
 
 
@@ -79,7 +79,7 @@ namespace EMPManagementAPI.Controllers
 
         // PUT: api/Department/{id}
         [HttpPut("{id:int}")]
-        public IActionResult UpdateDepartment(int id, [FromBody] UpdateDepartmentDto updateDepartmentDto)
+        public IActionResult UpdateDepartment(int id, [FromBody] DepartmentDto departmentDto)
         {
             if (!ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace EMPManagementAPI.Controllers
 
             try
             {
-                department.DepartmentName = updateDepartmentDto.DepartmentName;
+                department.DepartmentName = departmentDto.DepartmentName;
 
                 dbContext.SaveChanges();
 
